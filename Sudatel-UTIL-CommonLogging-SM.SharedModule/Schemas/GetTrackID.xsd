@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/GetTrackID" xmlns:tns="http://www.example.org/GetTrackID" elementFormDefault="qualified">
+
+    <element name="GetTrackID">
+    	<complexType>
+    		<sequence>
+    			<element name="TrackID" type="string" maxOccurs="1" minOccurs="0"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+</schema>

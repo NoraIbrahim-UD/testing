@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Define complex types for reusable elements -->
+  <xs:complexType name="DateTimeType">
+    <xs:simpleContent>
+      <xs:extension base="xs:dateTime"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!-- Define the ExceptionType -->
+  <xs:complexType name="ExceptionType">
+    <xs:sequence>
+      <xs:element name="ExceptionCode" type="xs:string"/>
+      <xs:element name="ExceptionMessage" type="xs:string"/>
+      <xs:element name="StackTrace" type="xs:string"/>
+
+      <xs:element name="Severity">
+      	<xs:simpleType>
+      		<xs:restriction base="xs:string">
+      			<xs:enumeration value="Low"></xs:enumeration>
+      			<xs:enumeration value="Medium"></xs:enumeration>
+      			<xs:enumeration value="High"></xs:enumeration>
+      			<xs:enumeration value="Critical"></xs:enumeration>
+      			<xs:enumeration value=''></xs:enumeration>
+      		</xs:restriction>
+      	</xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define the main structure for the log -->
+  <xs:element name="Log">
+    <xs:complexType>
+      <xs:sequence>
+      	<xs:element name="LogType" type="xs:int" />
+      	<xs:element name="ApplicationID" type="xs:string" />
+
+      	<xs:element name="LogID" type="xs:string"/>
+      	<xs:element name="TrackingId" type="xs:string" minOccurs="0" />
+      	<xs:element name="ComponentName" type="xs:string" />
+      	<xs:element name="Hostname" type="xs:string" minOccurs="0" />
+      	<xs:element name="Channel" minOccurs="0" maxOccurs="1">
+      		<xs:simpleType>
+      			<xs:restriction base="xs:string">
+      				<xs:enumeration value="USSD"></xs:enumeration>
+      				<xs:enumeration value="IVR"></xs:enumeration>
+      				<xs:enumeration value="Mobile App"></xs:enumeration>
+      				<xs:enumeration value="Kiosk"></xs:enumeration>
+      				<xs:enumeration value="Internet"></xs:enumeration>
+      			</xs:restriction>
+      		</xs:simpleType>
+      	</xs:element>
+      	<xs:element name="Timestamp" type="DateTimeType"/>
+      	<xs:element name="MSISDN" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>
+      	<xs:element name="Message" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      	<xs:element name="HTTPStatus" type="xs:string" minOccurs="0" />
+      	<xs:element name="TransactionStatus" type="xs:boolean"
+      		minOccurs="0" />
+      	<xs:element name="TransactionData" type="xs:string"
+      		minOccurs="0" />
+      	<xs:element name="FileName" type="xs:string" minOccurs="0" />
+
+      	<xs:element name="ReqRefNumber" type="xs:string"
+      		minOccurs="0" />
+      	<xs:element name="CustomerRefNumber" type="xs:string"
+      		minOccurs="0" />
+
+
+      	<xs:element name="Exception" type="ExceptionType"
+      		minOccurs="0" />
+                <xs:element name="LogLevel">
+      		<xs:simpleType>
+      			<xs:restriction base="xs:string">
+      				<xs:enumeration value="Info" />
+      				<xs:enumeration value="Debug" />
+      				<xs:enumeration value="Trace" />
+      				<xs:enumeration value="Error" />
+      			</xs:restriction>
+      		</xs:simpleType>
+      	</xs:element>
+      	<xs:element name="CorrelationID" type="xs:string"
+      		minOccurs="0" />
+      	<xs:element name="BackendErrorCode" type="xs:string"
+      		minOccurs="0" maxOccurs="1"/>
+      	<xs:element name="BackendErrorMessage" type="xs:string"
+      		minOccurs="0" maxOccurs="1"/>
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

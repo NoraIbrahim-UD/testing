@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jms="http://xsd.tns.tibco.com/bw/models/sharedresource/jms" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_hOjx0T6WEe-glrt5-GN9Kg" name="sudatel-util-commonlogging.sharedmodule.JNDIConfiguration" type="jms:JNDIConnection">
+  <jndi:configuration xsi:type="jms:JNDIConnectionConfiguration" xmi:id="_hOkY4D6WEe-glrt5-GN9Kg">
+    <substitutionBindings xmi:id="_j39dAD6WEe-glrt5-GN9Kg" template="providerUrl" propName="/Ems/ProviderURL"/>
+    <userCredentials xmi:id="_inqXID60Ee-xfcScSDdNMg">
+      <substitutionBindings xmi:id="_lNLA0D60Ee-xfcScSDdNMg" template="username" propName="/Ems/JNDIuserName"/>
+      <substitutionBindings xmi:id="_mt3XgD60Ee-xfcScSDdNMg" template="password" propName="/Ems/JNDIpassWord"/>
+    </userCredentials>
+  </jndi:configuration>
+</jndi:namedResource>
